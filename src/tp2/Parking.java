@@ -7,13 +7,13 @@ public class Parking {
 	protected ArrayList<Vehicule> storage = new ArrayList<>();
 	public Parking() {
 	}
-	public String Addvoiture(Vehicule vehicule) {
+	public String Addvehicule(Vehicule vehicule) {
 		if(storage.size() < maxPlace) {
 			this.storage.add(vehicule);
 		}
 		return vehicule.getHash();
 	}
-	public Vehicule Retourvoiture(String ticket){
+	public Vehicule Retourvehicule(String ticket){
 		Vehicule result =null;
 		for(Vehicule vehicule : this.storage){
 			if (ticket.equals(vehicule.getHash())){

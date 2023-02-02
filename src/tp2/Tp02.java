@@ -23,22 +23,34 @@ public class Tp02 {
 					System.out.println("Places libre :"+(parking.maxPlace -parking.storage.size()));
 					break;
 				case "E":
-					do {
+					
 					System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
 					choixVehicule = sc.nextLine().toUpperCase();
-						System.out.println("Entrez L'immatriculation:");
-						immatriculation = sc.nextLine();
-						System.out.println("Entrez le nombre de places:");
-						nbPlace = Integer.parseInt(sc.nextLine());
-						Vehicule vehicule = new Vehicule(immatriculation, nbPlace);
-						ticket = this.parking.Addvoiture(vehicule);
-						System.out.println("Votre ticket : *" + ticket);
-					}while (!choixVehicule.equals("V") || !choixVehicule.equals("M"));
+					System.out.println("Entrez L'immatriculation:");
+					immatriculation = sc.nextLine();
+					System.out.println("Entrez le nombre de places:");
+					nbPlace = Integer.parseInt(sc.nextLine());
+					System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
+					choixVehicule = sc.nextLine().toUpperCase();
+					Vehicule vehicule = null;
+					switch (choixVehicule){
+						case "V":
+							vehicule = new Voiture(immatriculation,nbPlace);
+							break;
+						case "M":
+							vehicule = new Moto(immatriculation,nbPlace);
+							break;
+						default:
+							System.out.println("Choisissez un charactère valide");
+							return;
+					}
+					ticket = this.parking.Addvehicule(vehicule);
+					System.out.println("Votre ticket : *" + ticket);
 					break;
 				case "S":
 					System.out.println("Entrez le ticket:");
 					testTicket = sc.nextLine();
-					parking.Retourvoiture(testTicket);
+					parking.Retourvehicule(testTicket);
 					break;
 				case "Q": break;
 				default:
