@@ -14,6 +14,7 @@ public class Tp02 {
 		String testTicket;
 		Scanner sc = new Scanner(System.in);
 		String choice;
+		String choixVehicule;
 		do {
 			System.out.println("Choisissez votre action:\n\t*P pour vérifier le nombres de places de parking disponibles\n\t*E pour enregister un véhicule\n\t*S pour sortir un véhicule\n\t*Q pour quiter");
 			choice = sc.nextLine().toUpperCase();
@@ -22,13 +23,17 @@ public class Tp02 {
 					System.out.println("Places libre :"+(parking.maxPlace -parking.storage.size()));
 					break;
 				case "E":
-					System.out.println("Entrez L'immatriculation:");
-					immatriculation = sc.nextLine();
-					System.out.println("Entrez le nombre de places:");
-					nbPlace = Integer.parseInt(sc.nextLine());
-					Vehicule vehicule = new Vehicule(immatriculation, nbPlace);
-					ticket = this.parking.Addvoiture(vehicule);
-					System.out.println("Votre ticket : *"+ticket);
+					do {
+					System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
+					choixVehicule = sc.nextLine().toUpperCase();
+						System.out.println("Entrez L'immatriculation:");
+						immatriculation = sc.nextLine();
+						System.out.println("Entrez le nombre de places:");
+						nbPlace = Integer.parseInt(sc.nextLine());
+						Vehicule vehicule = new Vehicule(immatriculation, nbPlace);
+						ticket = this.parking.Addvoiture(vehicule);
+						System.out.println("Votre ticket : *" + ticket);
+					}while (!choixVehicule.equals("V") || !choixVehicule.equals("M"));
 					break;
 				case "S":
 					System.out.println("Entrez le ticket:");
