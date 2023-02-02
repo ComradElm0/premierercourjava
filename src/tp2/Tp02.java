@@ -24,8 +24,8 @@ public class Tp02 {
 					break;
 				case "E":
 					
-					System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
-					choixVehicule = sc.nextLine().toUpperCase();
+					//System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
+					//choixVehicule = sc.nextLine().toUpperCase();
 					System.out.println("Entrez L'immatriculation:");
 					immatriculation = sc.nextLine();
 					System.out.println("Entrez le nombre de places:");
@@ -33,17 +33,15 @@ public class Tp02 {
 					System.out.println("Choisissez votre type de vehicule:\n\t*V pour une voiture\n\t*M pour une moto");
 					choixVehicule = sc.nextLine().toUpperCase();
 					Vehicule vehicule = null;
-					switch (choixVehicule){
-						case "V":
-							vehicule = new Voiture(immatriculation,nbPlace);
-							break;
-						case "M":
-							vehicule = new Moto(immatriculation,nbPlace);
-							break;
-						default:
-							System.out.println("Choisissez un charactère valide");
-							return;
-					}
+					do {
+						if (choixVehicule.equals("V")) {
+							vehicule = new Voiture(immatriculation, nbPlace);
+						} else if(choixVehicule.equals("M")) {
+							vehicule = new Moto(immatriculation, nbPlace);
+						}else {
+							System.out.println("Choisissez un charactère valide pour le véhicule");
+						}
+					}while (choixVehicule.equals("M") && choixVehicule.equals("V"));
 					ticket = this.parking.Addvehicule(vehicule);
 					System.out.println("Votre ticket : *" + ticket);
 					break;
