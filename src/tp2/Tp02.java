@@ -26,8 +26,8 @@ public class Tp02 {
 					immatriculation = sc.nextLine();
 					System.out.println("Entrez le nombre de places:");
 					nbPlace = Integer.parseInt(sc.nextLine());
-					Vehicule voiture = new Vehicule(immatriculation, nbPlace);
-					ticket = this.parking.Addvoiture(voiture);
+					Vehicule vehicule = new Vehicule(immatriculation, nbPlace);
+					ticket = this.parking.Addvoiture(vehicule);
 					System.out.println("Votre ticket : *"+ticket);
 					break;
 				case "S":
