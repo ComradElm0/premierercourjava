@@ -27,4 +27,4 @@ public class Vehicule {
 	public String getHash(){
 		return this.immatriculation + this.nbPlace;
 	}
-}
+}//coucou

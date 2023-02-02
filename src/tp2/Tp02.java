@@ -41,4 +41,4 @@ public class Tp02 {
 			}
 		} while (!choice.equals("Q"));
 	}
-}
+}// coucou
