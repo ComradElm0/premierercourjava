@@ -6,11 +6,15 @@ import java.util.ArrayList;
 public class Parking {
 	protected int maxPlace = 100;
 	protected ArrayList<Vehicule> storage = new ArrayList<>();
+	private Historique log = new Historique();
+	
 	public Parking() {
 	}
-	public String Addvehicule(Vehicule vehicule) {
+	public String Addvehicule(Vehicule vehicule) throws ParkingFullException {
 		if(storage.size() < maxPlace) {
 			this.storage.add(vehicule);
+		}else{
+			throw new ParkingFullException();
 		}
 		return vehicule.getHash();
 	}
@@ -19,6 +23,7 @@ public class Parking {
 		for(Vehicule vehicule : this.storage){
 			if (ticket.equals(vehicule.getHash())){
 				result = vehicule;
+				this.log.info(vehicule, ParkingDirection.OUT);
 				break;
 			}
 		}
