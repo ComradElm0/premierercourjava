@@ -1,23 +1,29 @@
 package tp2;
 
+import javax.management.ObjectInstance;
 import java.util.ArrayList;
 
 public class Parking {
-	protected int maxPlace = 3;
+	protected int maxPlace = 100;
 	protected ArrayList<Vehicule> storage = new ArrayList<>();
+	private Historique log = new Historique();
+	
 	public Parking() {
 	}
-	public String Addvoiture(Vehicule voiture) {
+	public String Addvehicule(Vehicule vehicule) throws ParkingFullException {
 		if(storage.size() < maxPlace) {
-			this.storage.add(voiture);
+			this.storage.add(vehicule);
+		}else{
+			throw new ParkingFullException();
 		}
-		return voiture.getHash();
+		return vehicule.getHash();
 	}
-	public Vehicule Retourvoiture(String ticket){
+	public Vehicule Retourvehicule(String ticket){
 		Vehicule result =null;
-		for(Vehicule voiture : this.storage){
-			if (ticket.equals(voiture.getHash())){
-				result = voiture;
+		for(Vehicule vehicule : this.storage){
+			if (ticket.equals(vehicule.getHash())){
+				result = vehicule;
+				this.log.info(vehicule, ParkingDirection.OUT);
 				break;
 			}
 		}
@@ -27,3 +33,4 @@ public class Parking {
 		return result;
 	}
 }
+//coucou

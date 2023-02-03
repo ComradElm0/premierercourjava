@@ -1,6 +1,6 @@
 package tp2;
 
-public class Vehicule {
+public abstract class Vehicule  {
 	protected String immatriculation;
 	protected int nbPlace;
 	public Vehicule(String immatriculation){
@@ -27,4 +27,4 @@ public class Vehicule {
 	public String getHash(){
 		return this.immatriculation + this.nbPlace;
 	}
-}
+}//coucou
