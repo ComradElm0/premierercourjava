@@ -1,9 +1,10 @@
 package tp4;
 
-import javax.imageio.IIOException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Tp4 {
 	
@@ -14,7 +15,7 @@ public class Tp4 {
 	private void run(){
 		FileWriter mywriter =null;
 		try {
-			File myfile = new File("C:\\Users\\ecorb\\Documents");
+			File myfile = new File("test.txt");
 			if (!myfile.exists()){
 				myfile.createNewFile();
 			}
@@ -32,6 +33,22 @@ public class Tp4 {
 				}
 			}
 			
+		}
+		Scanner myReader = null;
+		try {
+			File myfile = new File("test.txt");
+			myReader = new Scanner(myfile);
+			
+			while (myReader.hasNextLine()){
+				String data = myReader.nextLine();
+				System.out.println(data);
+			}
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+		} finally {
+			if (myReader != null){
+				myReader.close();
+			}
 		}
 	}
 }
