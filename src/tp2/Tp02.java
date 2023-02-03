@@ -21,6 +21,7 @@ public class Tp02 {
 			switch (choice){
 				case "P":
 					System.out.println("Places libre :"+(parking.maxPlace -parking.storage.size()));
+					System.out.println(Nombrevehicules(parking));
 					break;
 				case "E":
 					
@@ -55,5 +56,21 @@ public class Tp02 {
 					System.out.println("Choisissez un charactère valide");
 			}
 		} while (!choice.equals("Q"));
+		sc.close();
 	}
-}// coucou
+	public String Nombrevehicules(Parking parking){
+		int nbvoiture=0;
+		int nbmoto=0;
+		String result;
+		for (Vehicule vehicule: parking.storage) {
+			if (vehicule instanceof Voiture) {
+				nbvoiture++;
+			}
+			if (vehicule instanceof Moto) {
+				nbmoto++;
+			}
+		}
+			result = "Il y a "+nbvoiture+" voitures et "+nbmoto+" motos.";
+			return result;
+		}
+	}

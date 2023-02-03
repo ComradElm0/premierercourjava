@@ -1,6 +1,6 @@
 package tp2;
 
-public abstract class Vehicule {
+public abstract class Vehicule  {
 	protected String immatriculation;
 	protected int nbPlace;
 	public Vehicule(String immatriculation){

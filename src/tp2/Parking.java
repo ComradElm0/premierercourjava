@@ -1,9 +1,10 @@
 package tp2;
 
+import javax.management.ObjectInstance;
 import java.util.ArrayList;
 
 public class Parking {
-	protected int maxPlace = 3;
+	protected int maxPlace = 100;
 	protected ArrayList<Vehicule> storage = new ArrayList<>();
 	public Parking() {
 	}
@@ -26,4 +27,5 @@ public class Parking {
 		}
 		return result;
 	}
-} //coucou
+}
+//coucou

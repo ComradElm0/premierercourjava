@@ -3,6 +3,7 @@ package tp2;
 public class Moto extends Vehicule {
 	public Moto(String immatriculation, int nbPlace) {
 		super(immatriculation, nbPlace);
+		boolean typemoto = true;
 	}
 	
 	public Moto(String immatriculation) {
